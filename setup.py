@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='financial_year',
+    name='financialyear',
     version='0.2',
     packages=find_packages(),
     install_requires=[],
@@ -11,5 +11,5 @@ setup(
     url='https://github.com/piidus/FinancialYear',
     author='Sudiip',
     author_email='sudiipkumarbasu@gmail.com',
-    entry_point={'comsole_scripts': ['financial_year = src:main:main']}
+    entry_point={'comsole_scripts': ['financialyear = src:main:main']}
 )
