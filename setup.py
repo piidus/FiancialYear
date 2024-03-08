@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='financial_year',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     install_requires=[],
     description='It Calculate financial year related dates',
