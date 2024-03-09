@@ -1,25 +1,33 @@
 from datetime import datetime, timedelta
 import calendar
 
-class Calculation:
+class Finyear:
     ''' 
     It Returns the start date and end date of a month for a given financial year and month.
+    also set financial_month_start_month
     year = "2023-24" and month as int (e.g., 4 for April)
-    start_month returns a date like "01-04-2023"
-    end_month returns a date like "30-04-2023"
+    month_start_date returns a date like "01-04-2023"
+    month_end_date returns a date like "30-04-2023"
     month_list returns all months of the financial year from "04-2023" to "03-2024"
     '''
 
     def __init__(self, year: str, **kwargs) -> None:
+        '''
+            year : 2023-24 as str or 2023 str
+            **kwargs: financial_month_start_month:str  
+        '''
         self.finyear = year
-        self.financial_start_month = str(kwargs.get('start_month', 4))     
+        self.financial_month_start_month = str(kwargs.get('month_start_date', 4))     
         self.year = year[:4]
    
-    def start_month(self, month: int) -> str:
-        if month >= int(self.financial_start_month) and month <= 12:
+    def month_start_date(self, month: int) -> str:
+        ''' return datetime object 
+            return month first date
+        '''
+        if month >= int(self.financial_month_start_month) and month <= 12:
             # print('first')
             return datetime.strptime(f"01-{month:02d}-{self.year[:4]}", '%d-%m-%Y').date()
-        elif month > 0 and month < int(self.financial_start_month):
+        elif month > 0 and month < int(self.financial_month_start_month):
             # print('second')
             next_year = (datetime.strptime(f"01-{month:02d}-{self.year[:4]}", '%d-%m-%Y').date()+timedelta(days=395)).year
             return datetime.strptime(f"01-{month:02d}-{next_year}", '%d-%m-%Y').date()
@@ -27,9 +35,9 @@ class Calculation:
             raise Exception('Please enter Correct Month')
         # return datetime.strptime(f"01-{month:02d}-{self.year[:4]}", '%d-%m-%Y').date()
 
-    def end_month(self, month: int) -> str:
+    def month_end_date(self, month: int) -> str:
         # Get the last day of the month
-        start_date = self.start_month(month=month)
+        start_date = self.month_start_date(month=month)
         month = start_date.month
         year = start_date.year
         total_month = calendar.monthcalendar(year=year, month=month)
@@ -41,7 +49,7 @@ class Calculation:
         return datetime.strptime(f"{last_date}-{month}-{year}", "%d-%m-%Y").date()
     
     def previous_month_dates(self, month:int):
-        end_date_ = self.start_month(month=month)-timedelta(days=1)
+        end_date_ = self.month_start_date(month=month)-timedelta(days=1)
         month = end_date_.month
         year = end_date_.year
         first_date_ = datetime.strptime(f"01-{month}-{year}", "%d-%m-%Y").date()

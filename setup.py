@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open("README.md", 'r') as f:
+    description = f.read()
+
 setup(
     name='financialyear',
-    version='0.2',
+    version='0.3.4',
     packages=find_packages(),
     install_requires=[],
     description='It Calculate financial year related dates',
