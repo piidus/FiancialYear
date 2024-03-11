@@ -14,5 +14,6 @@ setup(
     url='https://github.com/piidus/FinancialYear',
     author='Sudiip',
     author_email='sudiipkumarbasu@gmail.com',
+    keywords=['financial year', 'fin year'],
     entry_point={'comsole_scripts': ['financialyear = src:main:main']}
 )
