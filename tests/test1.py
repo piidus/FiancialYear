@@ -1,5 +1,5 @@
 # from fi
-from 
+from fi
  
  # Example usage:
 def test_fiancial_data():
