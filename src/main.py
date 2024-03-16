@@ -68,4 +68,5 @@ class Finyear:
             start_date += timedelta(days=30)
         return month_list
 
-
+# t = Finyear('2022-23')
+# print(t.month_start_date(5))

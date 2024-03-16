@@ -1,3 +1,4 @@
+from .main import Finyear
 
-from .primary import Finyear
-__all__ = ['Finyear']
+
+__all__ = ["Finyear"]

@@ -1,6 +1,5 @@
 
-
-from primary import Finyear
+from main import Finyear
 
 
 # Example usage:
