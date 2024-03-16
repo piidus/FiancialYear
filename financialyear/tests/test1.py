@@ -1,5 +1,5 @@
 # from fi
-from src import Finyear
+from financialyear import Finyear
  
  # Example usage:
 def test_fiancial_data():
