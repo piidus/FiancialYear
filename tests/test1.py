@@ -1,4 +1,4 @@
-from financialyear.primary import Calculation
+from src.primary import Calculation
 
  # Example usage:
 def test_fiancial_data():
