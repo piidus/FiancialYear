@@ -1,4 +1,4 @@
-from src
+from finan
 
  # Example usage:
 def test_fiancial_data():

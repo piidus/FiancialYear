@@ -6,7 +6,9 @@ It calculate financial year related issue
 ----------------------------------------
 <h3> Major Update in function name and stable version <h3>
 
-- pip install --upgrade financialyear
+### To update
+```bash
+    pip install --upgrade financialyear
 
 - Input may be in 2022 or 2022-23 in 
 - It Returns the start date and end date of a month for a given financial year and month.
