@@ -9,6 +9,8 @@ class Finyear:
     month_start_date returns a date like "01-04-2023"
     month_end_date returns a date like "30-04-2023"
     month_list returns all months of the financial year from "04-2023" to "03-2024"
+
+    ** kwargs financial_month_start_month | set financial year start month
     '''
 
     def __init__(self, year: str, **kwargs) -> None:
@@ -67,6 +69,42 @@ class Finyear:
             month_list.append(start_date.strftime("%m-%Y"))
             start_date += timedelta(days=30)
         return month_list
+    
+
+def date_to_finyear(date:any): 
+    '''
+        yyyy-mm-dd
+        str|datetime 
+        return str like 2023-24
+    '''
+    try:
+        if type(date) == str:
+            # Parse the date string into a datetime object
+            date_ = datetime.strptime(date, "%Y-%m-%d")
+        else:
+            date_ = date
+    except Exception as e:
+        raise('please provide only str or datetime obj')
+    else:    
+    
+        # Check if the month of the date is April or later
+        if date_.month >= 4:
+            # Financial year starts from April, so if the month is April or later,
+            # the financial year starts in the current calendar year.
+            financial_year_start = date_.year
+        else:
+            # Otherwise, the financial year started in the previous calendar year.
+            financial_year_start = date_.year - 1
+        
+        # Financial year ends in March of the following calendar year
+        financial_year_end = f"{financial_year_start + 1}"[2:]
+        # financial_year_end = datetime.strptime(, '%y')
+        
+        # Construct the financial year string
+        financial_year = f"{financial_year_start}-{financial_year_end}"
+    
+        # print(financial_year)
+        return financial_year 
 
 # t = Finyear('2022-23')
 # print(t.month_start_date(5))
