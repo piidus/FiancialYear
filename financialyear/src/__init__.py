@@ -1,3 +1,3 @@
-from .main import Finyear
+from .main import Finyear, date_to_finyear
 
 
